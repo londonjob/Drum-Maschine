@@ -1,0 +1,50 @@
+body { 
+  background-color: lightgrey;
+ }
+
+
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  
+}
+
+.drum-machine {
+  margin-top: 50px;
+    
+}
+
+.keyPad{
+  width: 70%;
+  height: 50%;
+  padding: 5px;
+
+ 
+}
+
+.soundName{
+  width: 50%;
+  height: 150px;
+  padding: 10px;
+ 
+ 
+}
+
+button{
+  border;
+}
+
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center; 
+  
+    
+   
+}

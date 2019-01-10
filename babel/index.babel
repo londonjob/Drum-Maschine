@@ -1,0 +1,128 @@
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      keyPad: [
+        {
+          keyCode: 81,
+          key: "Q",
+          audioID: "Sound Q",
+          src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+        },
+
+        {
+          keyCode: 87,
+          key: "W",
+          audioID: "Sound W",
+          src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+        },
+
+        {
+          keyCode: 69,
+          key: "E",
+          audioID: "Sound E",
+          src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+        },
+
+     
+        {
+          keyCode: 65,
+          key: "A",
+          audioID: "Sound A",
+          src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+        },
+
+        {
+          keyCode: 83,
+          key: "S",
+          audioID: "Sound S",
+          src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+        },
+
+        {
+          keyCode: 68,
+          key: "D",
+          audioID: "Sound D",
+          src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+        },
+        
+          {
+          keyCode: 90,
+          key: "Z",
+          audioID: "Sound Z",
+          src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+        },
+
+        {
+          keyCode: 88,
+          key: "X",
+          audioID: "Sound X",
+          src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+        },
+
+        {
+          keyCode: 67,
+          key: "C",
+          audioID: "Sound C",
+          src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+        }
+      ],
+      display: "Press Key or click the button"
+    };
+  }
+
+  playSound = e => {
+    document.getElementById(e).currentTime = 0;
+    document.getElementById(e).play();
+  };
+
+  handleKeyDown = e => {
+    const ourKey = this.state.keyPad.find(x => x.keyCode === e.keyCode);
+    if (ourKey != null) {
+      this.playSound(String.fromCharCode(e.keyCode));
+      this.setState({ display: ourKey.audioID });
+    }
+  };
+
+  handleClick = e => {
+    console.log(e);
+    this.playSound(e.target.innerText);
+    this.setState({ display: e.target.id });
+  };
+
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyDown);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>The most simple Drum Machine on earth</h1>
+      <div className="drum-machine row justify-content-center" id="drum-machine">
+        <div className="border border-success keyPad ">
+          {this.state.keyPad.map(x => (
+            <button className="btn btn-success drum-pad col-md-4 border border-dark" key={x.keyCode} id={x.audioID} onClick={this.handleClick}>
+              {x.key}
+              <audio className="clip" id={x.key} src={x.src} />
+            </button>
+          ))}
+        </div>
+ 
+      </div>
+       <div className="justify-content-center row">
+         <div >
+          <p id="display" className="settings-display">
+            {this.state.display}
+          </p>
+      </div>
+        </div>
+         <footer>
+        <p className="text-center">Written by <a href="https://github.com/londonjob" target="_blank">londonjob</a></p>
+        </footer>
+        </div>
+    );
+  }
+}
+
+
+ReactDOM.render(<App />, document.getElementById('root'));
