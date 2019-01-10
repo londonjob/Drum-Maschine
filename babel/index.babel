@@ -97,7 +97,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>The most simple Drum Machine on earth</h1>
+        <h1>The simplest Drum Machine on earth</h1>
       <div className="drum-machine row justify-content-center" id="drum-machine">
         <div className="border border-success keyPad ">
           {this.state.keyPad.map(x => (
