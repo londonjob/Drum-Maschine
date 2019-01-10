@@ -24,7 +24,6 @@ class App extends React.Component {
           src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
         },
 
-     
         {
           keyCode: 65,
           key: "A",
@@ -45,8 +44,8 @@ class App extends React.Component {
           audioID: "Sound D",
           src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
         },
-        
-          {
+
+        {
           keyCode: 90,
           key: "Z",
           audioID: "Sound Z",
@@ -98,31 +97,42 @@ class App extends React.Component {
     return (
       <div>
         <h1>The simplest Drum Machine on earth</h1>
-      <div className="drum-machine row justify-content-center" id="drum-machine">
-        <div className="border border-success keyPad ">
-          {this.state.keyPad.map(x => (
-            <button className="btn btn-success drum-pad col-md-4 border border-dark" key={x.keyCode} id={x.audioID} onClick={this.handleClick}>
-              {x.key}
-              <audio className="clip" id={x.key} src={x.src} />
-            </button>
-          ))}
+        <div
+          className="drum-machine row justify-content-center"
+          id="drum-machine"
+        >
+          <div className="border border-success keyPad ">
+            {this.state.keyPad.map(x => (
+              <button
+                className="btn btn-success drum-pad col-md-4 border border-dark"
+                key={x.keyCode}
+                id={x.audioID}
+                onClick={this.handleClick}
+              >
+                {x.key}
+                <audio className="clip" id={x.key} src={x.src} />
+              </button>
+            ))}
+          </div>
         </div>
- 
-      </div>
-       <div className="justify-content-center row">
-         <div >
-          <p id="display" className="settings-display">
-            {this.state.display}
+        <div className="justify-content-center row">
+          <div>
+            <p id="display" className="settings-display">
+              {this.state.display}
+            </p>
+          </div>
+        </div>
+        <footer>
+          <p className="text-center">
+            Written by{" "}
+            <a href="https://github.com/londonjob" target="_blank">
+              londonjob
+            </a>
           </p>
-      </div>
-        </div>
-         <footer>
-        <p className="text-center">Written by <a href="https://github.com/londonjob" target="_blank">londonjob</a></p>
         </footer>
-        </div>
+      </div>
     );
   }
 }
 
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
