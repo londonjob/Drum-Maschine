@@ -97,7 +97,7 @@ var _createClass = function () {function defineProperties(target, props) {for (v
     {var _this2 = this;
       return (
         React.createElement("div", null,
-          React.createElement("h1", null, "The most simple Drum Machine on earth"),
+          React.createElement("h1", null, "The simplest Drum Machine on earth"),
           React.createElement("div", { className: "drum-machine row justify-content-center", id: "drum-machine" },
             React.createElement("div", { className: "border border-success keyPad " },
               this.state.keyPad.map(function (x) {return (
